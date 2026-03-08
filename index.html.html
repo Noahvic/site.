@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Guerreira</title>
+    <style>
+        :root {
+            --color-pink: #ff6b81;
+            --color-glow: #ff9a9e;
+            --color-stem: #2ecc71;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #05050a;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: pointer;
+        }
+
+        /* Estrelas Dinâmicas */
+        .stars-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #1b2735 0%, #05050a 100%);
+            z-index: -1;
+        }
+
+        /* Texto da Declaração */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 650px;
+            margin-top: 40px;
+            margin-bottom: 350px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 129, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        h1 { color: var(--color-pink); text-shadow: 0 0 15px var(--color-pink); font-size: 2rem; }
+        
+        .texto {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            text-align: justify;
+            color: #e0e0e0;
+        }
+
+        .destaque { color: var(--color-glow); font-weight: bold; }
+        
+        .assinatura {
+            margin-top: 25px;
+            font-size: 1.3rem;
+            color: var(--color-pink);
+            font-style: italic;
+        }
+
+        .clique-msg {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #7bed9f;
+            animation: pulse 2s infinite;
+        }
+
+        /* --- JARDIM DE FLORES (RECONSTRUÍDO) --- */
+        .garden {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            pointer-events: none;
+        }
+
+        .flower {
+            position: relative;
+            margin: 0 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Caule com Animação de Crescimento */
+        .stem {
+            width: 6px;
+            height: 220px;
+            background: linear-gradient(to top, #1a5e38, var(--color-stem));
+            border-radius: 5px;
+            transform-origin: bottom;
+            transform: scaleY(0);
+            animation: growStem 3s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+        }
+
+        /* Cabeça da Flor */
+        .flower-head {
+            position: absolute;
+            top: -45px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0);
+            animation: bloom 2s ease-out forwards 2.5s;
+        }
+
+        .petal {
+            position: absolute;
+            width: 35px;
+            height: 50px;
+            background: linear-gradient(to top, var(--color-pink), var(--color-glow));
+            border-radius: 50% 50% 10% 10% / 80% 80% 20% 20%;
+            box-shadow: 0 0 10px rgba(255, 107, 129, 0.5);
+            transform-origin: bottom center;
+            bottom: 40px;
+        }
+
+        /* Pétalas organizadas em círculo */
+        .p1 { transform: rotate(0deg); }
+        .p2 { transform: rotate(45deg); }
+        .p3 { transform: rotate(90deg); }
+        .p4 { transform: rotate(135deg); }
+        .p5 { transform: rotate(180deg); }
+        .p6 { transform: rotate(225deg); }
+        .p7 { transform: rotate(270deg); }
+        .p8 { transform: rotate(315deg); }
+
+        .miolo {
+            width: 25px;
+            height: 25px;
+            background: #f1c40f;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 15px #f1c40f;
+            position: absolute;
+            bottom: 30px;
+        }
+
+        /* Animações */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes growStem { to { transform: scaleY(1); } }
+        @keyframes bloom { to { opacity: 1; transform: scale(1); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    </style>
+</head>
+<body>
+
+    <div class="stars-container"></div>
+    <audio id="musica" src="musica.mp3" loop></audio>
+
+    <div class="container">
+        <h1>Feliz Dia das Mulheres, meu amor! ❤️</h1>
+        <div class="texto">
+            <p>Eu amo tanto você que um simples site nunca seria suficiente para expressar tudo o que sinto. Mas hoje, eu queria usar o que estou aprendendo para te fazer uma surpresa especial.</p>
+            
+            <p>Você é a <span class="destaque">menina mais inteligente e forte</span> que eu já conheci. Eu sei que as coisas não são fáceis e admiro demais a forma como você enfrenta cada desafio com tanta garra. Ver o quanto você batalha e o quanto você é incrível só me faz ter mais certeza de que eu quero estar ao seu lado para sempre.</p>
+            
+            <p>Você é minha inspiração diária, minha paz e minha felicidade. Tenho um orgulho imenso da mulher maravilhosa que você se tornou.</p>
+            
+            <p class="assinatura">"Desculpas não poder lhe dar flores pessoalmente ainda."</p>
+        </div>
+        <p class="clique-msg" id="msg-interacao">Toque em qualquer lugar para ouvir nossa música</p>
+    </div>
+
+    <div class="garden">
+        <div class="flower">
+            <div class="flower-head">
+                <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+                <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
+                <div class="miolo"></div>
+            </div>
+            <div class="stem" style="height: 180px; animation-delay: 0.5s;"></div>
+        </div>
+        <div class="flower">
+            <div class="flower-head" style="animation-delay: 3s;">
+                <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+                <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
+                <div class="miolo"></div>
+            </div>
+            <div class="stem" style="height: 250px;"></div>
+        </div>
+        <div class="flower">
+            <div class="flower-head" style="animation-delay: 3.5s;">
+                <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+                <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
+                <div class="miolo"></div>
+            </div>
+            <div class="stem" style="height: 190px; animation-delay: 1s;"></div>
+        </div>
+    </div>
+
+    <script>
+        document.body.addEventListener('click', function() {
+            const audio = document.getElementById('musica');
+            audio.play();
+            document.getElementById('msg-interacao').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
